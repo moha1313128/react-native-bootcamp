@@ -1,20 +1,36 @@
+import React from "react";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
-import HomeScreen from "./src/screens/HomeScreen";
-import PasswordScreen from "./src/screens/PasswordScreen";
+import { Provider } from "./src/context/BlogContext";
+import IndexScreen from "./src/screens/IndexScreen";
+import ShowScreen from "./src/screens/ShowScreen";
+import CreateScreen from "./src/screens/CreateScreen";
+import EditScreen from "./src/screens/EditScreen";
 
-const navigator = createStackNavigator(
+const NavigationContainer = createStackNavigator(
   {
-    Home: HomeScreen,
-    Password: PasswordScreen,
+    // Home: HomeScreen,
+    Blogs: IndexScreen,
+    Create: CreateScreen,
+    Show: ShowScreen,
+    Edit: EditScreen,
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "Blogs",
     defaultNavigationOptions: {
-      headerTitleStyle: { alignSelf: "center" },
-      title: "App",
+      headerTitleAlign: "center",
+      title: "Blog",
     },
   }
 );
 
-export default createAppContainer(navigator);
+const App = createAppContainer(NavigationContainer);
+
+export default () => {
+  return (
+    <Provider>
+      <App />
+    </Provider>
+  );
+};
+// export default createAppContainer(AppNavigator);
