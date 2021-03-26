@@ -1,9 +1,14 @@
 {
-    "blogposts":[
-        {
-            "id":1,
-            "title":"api post",
-            "content":"content for api post"
-        }
-    ]
+  "blogposts": [
+    {
+      "id": 1,
+      "title": "api post",
+      "content": "content for api post"
+    },
+    {
+      "title": "Moha1313128@outlook.com ",
+      "content": "Moha1313128@gmail.com ",
+      "id": 4
+    }
+  ]
 }

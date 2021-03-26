@@ -14,14 +14,20 @@ const IndexScreen = ({ navigation }) => {
   const { state, addBlogPost, deleteBlogPost, getBlogPosts } = useContext(
     Context
   );
-
+  //TODO: Add comment provider
   useEffect(() => {
     getBlogPosts();
+    const listener = navigation.addListener("didFocus", () => {
+      getBlogPosts();
+    });
+    return () => {
+      listener.remove();
+    };
   }, []);
 
   return (
     <View>
-      <Button title="Add Post" onPress={addBlogPost} />
+      {/* <Button title="Add Post" onPress={addBlogPost} /> */}
       <FlatList
         data={state}
         keyExtractor={(blogPost) => blogPost.title}
